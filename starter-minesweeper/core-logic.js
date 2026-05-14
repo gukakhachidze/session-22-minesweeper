@@ -23,7 +23,7 @@
  */
 function calculateGridSize(rows, cols) {
   // TODO: Return rows multiplied by cols
-  return 1; // TEMPORARY
+  return rows * cols; // TEMPORARY
 }
 
 /**
@@ -45,7 +45,17 @@ function calculateGridSize(rows, cols) {
  */
 function isOutOfBounds(row, col, totalRows, totalCols) {
   // TODO: Write a return statement that evaluates the 4 conditions combined by ||
-  return false; // TEMPORARY - This will crash the engine on edge clicks!
+  if (row < 0) {
+    return true;
+  } else if (row >= totalRows) {
+    return true;
+  } else if (col < 0) {
+    return true;
+  } else if (col >= totalCols) {
+    return true;
+  } else {
+    return false;
+  }
 }
 /**
  * Task 3: Identify Anomalies (Mines)
@@ -58,7 +68,11 @@ function isOutOfBounds(row, col, totalRows, totalCols) {
  */
 function isMineCell(cellValue) {
   // TODO: Use strict equality (===) to check if cellValue is 9
-  return false; // TEMPORARY
+  if (cellValue === 9) {
+    return true;
+  } else {
+    return false;
+  } // TEMPORARY
 }
 
 /**
@@ -70,7 +84,11 @@ function isMineCell(cellValue) {
  */
 function isSafeCell(cellValue) {
   // TODO: Use strict inequality (!==) to check if cellValue is not 9
-  return false; // TEMPORARY
+  if (cellValue !== 9) {
+    return true;
+  } else {
+    return false;
+  } // TEMPORARY
 }
 
 /**
@@ -84,7 +102,11 @@ function isSafeCell(cellValue) {
  */
 function isGameWon(revealedCells, totalSafeCells) {
   // TODO: Use strict equality (===)
-  return false; // TEMPORARY
+  if (revealedCells === totalSafeCells) {
+    return true;
+  } else {
+    return false;
+  } // TEMPORARY
 }
 
 /**
@@ -96,5 +118,5 @@ function isGameWon(revealedCells, totalSafeCells) {
  */
 function calculateScore(revealedCount) {
   // TODO: Multiply revealedCount by 10 and return it
-  return 0; // TEMPORARY
+  return revealedCount * 10; // TEMPORARY
 }
